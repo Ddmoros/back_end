@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {{> header}}
+
+</head>
+<body>
+{{> menu}}
+<br>     
+
+    <h1 class = "Found">{{username}}'s Lost Pets 🐾 </h1><hr>
+{{^allAnimals}}
+    <h1>No Posts yet..</h1>
+{{/allAnimals}}
+<ol>
+{{#myPostsLost}}
+    <li><h3>A {{species}} named {{name}}.</h3>
+        <ul>
+            <li>Breed: {{breed}}</li>
+            <li>Color: {{color}}</li>
+            <li>Size: {{size}}</li>
+            <li>Age: {{age}}</li>
+            <li>Found on {{dateFound}}</li>
+            <li>Description: {{description}}</li>
+            <img src = "/uploads/{{pet_pic}}" class="uploaded-pic"/>
+        </ul>
+        <form method="POST" action = "/delete-MyLostPost">
+            <input type = "hidden" name = "id" value={{id}} /> 
+            <button class="button">Delete post</button>
+        </form>
+            <h4>Comments</h4>
+             <ol>
+                {{#comment}}
+                    <li>{{body}}
+                <form method='POST' action='/deleteMyLostComment/{{id}}'>
+                    <button class="button comment-delete">Delete comment</button>
+                </form></li>
+            {{/comment}}
+        </ol>
+    </li>
+{{/myPostsLost}}
+</ol>
+<br><hr><br>
+
+
+<!-- FOUND PETS -->
+
+
+<h1 class = "Found">{{username}}'s Found Pets 🐾 </h1><hr>
+{{^allAnimals}}
+    <h1>No Posts yet..</h1>
+{{/allAnimals}}
+
+<ol>
+{{#result}}
+    <li><h3>A {{species}} named {{name}} !</h3>
+        <ul>
+            <li>Breed: {{breed}}</li>
+            <li>Color: {{color}}</li>
+            <li>Size: {{size}}</li>
+            <li>Age: {{age}}</li>
+            <li>Found on {{dateFound}}</li>
+            <li>Description: {{description}}</li>
+            <li><img src = "/uploads/{{pet_pic}}" /></li>
+        </ul>
+        <form method="POST" action = "/delete-MyFoundPost">
+                        <input type = "hidden" name = "id" value={{id}} /> 
+                        <button class="button">Delete post</button>
+                    </form>
+                        <h4>Comments</h4>
+                        <ol>
+                            {{#comment}}
+                                <li>{{body}}
+                                <form method='POST' action='/deleteMyFoundComment/{{id}}'>
+                                    <button class="button comment-delete">Delete</button>
+                                </form></li>
+                            {{/comment}}
+                        </ol>
+    </li>
+{{/result}}
+</ol>
+
+
+<br><br><br><br>
+  {{> footer}}
+    </body>
+   
+</html>

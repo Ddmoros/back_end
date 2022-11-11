@@ -1,0 +1,63 @@
+<html>
+  <head>
+    <link rel ="stylesheet" href="/css/lostPage.css"></link>
+  </head>
+  <body>
+        <h1>Lost Pets</h1>
+        <hr> 
+        <button onclick = "window.location.href='http://localhost:3000/lost-animals/{{id}}'">Back</button> 
+        <button onclick = "window.location.href='http://localhost:3000/dashboard'">Go to Main</button>  
+        
+        <h2>Please, download a picture of your pet:</h2>
+        <form action = "/upload" method ="POST" enctype ="multipart/form-data">
+        <label>Picture of your animal</label>
+        <input type="file" name="photo" />
+        <button type="submit">Upload</button>
+        </form>
+
+
+        <div class="pet-preview-image">
+        
+        <img src = "{{imageURL}}" class ="{{className}}"/>
+        </div>
+
+
+        
+
+      
+        <form method = "POST" action = "/add_lost_post">
+            <h2>Please, let us know who was lost:</h2>
+            <input type = "text" placeHolder = "Dog/Cat" name = "species" />
+            <input type = "text" placeHolder = "Color of your pet" name = "color" />
+            <input type = "text" placeHolder = "Breed" name = "breed" />
+            <input type = "text" placeHolder = "Gender" name = "gender" />
+            <input type = "text" placeHolder = "Name" name = "name" />
+            <input type = "text" placeHolder = "Size" name = "size" />
+            <input type = "text" placeHolder = "Age" name = "age" />
+            <input type = "text" placeHolder = "Zip Code" name = "zipCode" />
+            <input type = "text" placeHolder = "Any other detail" name = "description" />
+            <input type = "date" placeHolder = "Date your pet was lost" name = "dateLost" />
+            <button>Submit</button>   
+        </form>
+        <br>
+
+        
+  
+
+      
+
+
+
+
+
+
+
+
+  </body>
+
+
+
+
+
+</html>
+

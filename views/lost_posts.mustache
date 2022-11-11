@@ -1,0 +1,54 @@
+<html>
+  <head>
+    {{> header}}
+    <link rel ="stylesheet" href="/css/lostPage.css"></link>
+    
+  </head>
+  <body>
+   {{> menu}}
+    <button onclick = "window.location.href='http://localhost:3000/add_lost_post'">Add your post</button>
+     <div class = "view_all_animals">
+        <ul>
+            {{#allAnimals}}
+              <img src = "/uploads/{{pet_pic}}" class ="list-animals" />
+              <button onclick = "window.location.href='http://localhost:3000/lost-animals/{{id}}'">See all details</button>
+              
+              <button onclick = "window.location.href='http://localhost:3000/postComment/{{id}}'">Add Comment</button>
+              <h3>{{species}}</h3>
+              <h3>{{color}}</h3>
+              <h3>{{breed}} </h3>
+              <h3>{{gender}} </h3>
+              <h3>{{name}} </h3>
+              <h3>{{size}} </h3>
+              <h3>{{age}} </h3>
+              <h3>{{zip_code}} </h3>
+              <p>{{description}} </p>
+              <h3>{{date_lost}} </h3>
+              
+            
+
+
+
+              <ul>
+                  <h2>Recent comments</h2>
+                  {{#comment}}
+                      <p>{{body}}</p>
+                  {{/comment}}
+              </ul>
+            
+            {{/allAnimals}}
+            {{^allAnimals}}
+               <h1>No Posts yet..</h1>
+            {{/allAnimals}}
+      </div>
+
+ 
+
+  
+  </body>
+
+
+
+
+
+</html>

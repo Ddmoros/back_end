@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {{> header}}
+
+    <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+  {{> login-menu}}
+
+<div class="registration-form">
+<br><br><h1>Registration Form</h1>
+
+                                                               
+<form method="POST" action="/register">
+    <div class="form-wrap">
+        <div class="all-inputs">
+            
+            <div class="input"><input type="text" placeHolder="first name" name="firstName" required/></div>
+            <div class="input"><input type="text" placeHolder="last name" name="lastName" required/></div>
+            <div class="input"><input type="text" placeHolder="email" name="email" required/></div>
+            <div class="input"><input type="text" placeHolder="phone number" name="phoneNumber" /></div>
+            <div class="input"><input type="text" placeHolder="zip code" name="zipCode" /></div>
+            <div class="input"><input type="text" placeHolder="username" name="username" required/></div>
+            <div class="input"><input type="password" placeholder="password" name="password" required/></div>
+    
+        </div>
+
+    <br><div><button class="button">Submit</button></div><br>
+
+    </div>
+</form>
+{{errorMessage}}
+
+
+<button onclick="window.location.href='http://localhost:3000/login'"class="button">Go to login</button>
+</div>
+
+    
+
+    {{> reg-footer}}
+    
+</body>
+</html>
